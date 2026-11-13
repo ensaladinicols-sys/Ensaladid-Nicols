@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ensaladíd Nicol's</title>
+  
+  <!-- Enlace a la hoja de estilos CSS -->
+  <link rel="stylesheet" href="file:///C|/Users/52556/Desktop/Ensaladid 2/styles.css">
+  
+  <!-- Iconos de FontAwesome para redes sociales y botones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- PayPal SDK -->
+  <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=MXN"></script>
+</head>
+<body>
+
+  <!-- Banner Superior Responsivo -->
+  <header class="banner-container">
+    <img src="../ENSALADID PAGINA WEB/IMAGENES/banner.jpg.jpeg.jpeg" alt="Banner Ensaladíd Nicol's" class="banner-img">
+  </header>
+
+  <!-- Menú de Navegación con Hamburguesa -->
+  <nav class="navbar">
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir Menú">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-menu" id="navMenu">
+      <ul>
+        <li><a href="javascript:void(0)" onclick="showSection('home')">Home</a></li>
+        <li><a href="javascript:void(0)" onclick="showSection('ensaladas')">Ensaladas</a></li>
+        <li><a href="javascript:void(0)" onclick="showSection('cocteles')">Cócteles</a></li>
+        <li><a href="javascript:void(0)" onclick="showSection('bebidas')">Bebidas</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Botón Flotante del Carrito -->
+  <button class="cart-floating-btn" id="openCartBtn" title="Ver Carrito">
+    <i class="fas fa-shopping-cart"></i>
+    <span class="cart-badge" id="cartBadge">0</span>
+  </button>
+
+  <!-- SECCIÓN 1: HOME -->
+  <section id="home" class="page-section active-section">
+    <div class="logo-container">
+      <img src="../ENSALADID PAGINA WEB/IMAGENES/logo.png.jpeg.jpeg" alt="Logo Ensaladíd" class="logo-img logo-marca-agua">
+    </div>
+
+    <div class="main-content">
+      <div class="menu-cards-grid">
+        
+        <!-- Tarjeta Ensaladas -->
+        <div class="card-categoria">
+          <div class="img-categoria-container">
+            <img src="../ENSALADID PAGINA WEB/IMAGENES/mixrollo.png.jpeg.jpeg" alt="Ensaladas">
+          </div>
+          <button class="btn-category btn-ensaladas" onclick="showSection('ensaladas')">
+            🥗 ENSALADAS
+          </button>
+        </div>
+
+        <!-- Tarjeta Cócteles -->
+        <div class="card-categoria">
+          <div class="img-categoria-container">
+            <img src="../ENSALADID PAGINA WEB/IMAGENES/coctelkilo.png.jpeg.jpeg" alt="Cócteles">
+          </div>
+          <button class="btn-category btn-cocteles" onclick="showSection('cocteles')">
+            🍓 CÓCTELES
+          </button>
+        </div>
+
+        <!-- Tarjeta Bebidas -->
+        <div class="card-categoria">
+          <div class="img-categoria-container">
+            <img src="../ENSALADID PAGINA WEB/IMAGENES/jugoverde.png.jpeg.jpeg" alt="Bebidas">
+          </div>
+          <button class="btn-category btn-bebidas" onclick="showSection('bebidas')">
+            ☕ BEBIDAS
+          </button>
+        </div>
+
+      </div>
+
+      <div class="promo-box">
+        <div class="promo-badge">¡GRATIS!</div>
+        <p>¡Bebida gratis con tu combo!</p>
+        <small>Válido en la primera compra</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 2: ENSALADAS -->
+  <section id="ensaladas" class="page-section">
+    <div class="section-header green-header">
+      <h2>ENSALADAS</h2>
+      <div class="cart-icon" onclick="openCartModal()"><i class="fas fa-shopping-basket"></i></div>
+    </div>
+
+    <!-- Carrusel Ensaladas -->
+    <div class="carousel-container" id="carousel-ensaladas">
+      <div class="carousel-slide active">
+        <a href="IMAGENES/menu_mixrollo.jpg.jpeg.jpeg.jpeg"><img src="../ENSALADID PAGINA WEB/IMAGENES/mixrollo.png.jpeg.jpeg" alt="Ensalada Mix Rollito" class="carousel-img"></a>
+        <div class="card">
+          <h3>Ensalada Mix Rollito Asado</h3>
+          <p class="price">$97</p>
+          <button class="btn-add-cart" onclick="addToCart('Ensalada Mix Rollito', 97)"><i class="fas fa-cart-plus"></i> Agregar al Carrito</button>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <a href="IMAGENES/menu_huevo.jpg.jpeg.jpeg.jpeg"><img src="../ENSALADID PAGINA WEB/IMAGENES/huevo.png.jpeg.jpeg" alt="Ensalada De Huevo" class="carousel-img"></a>
+        <div class="card">
+          <h3>Ensalada De Huevo</h3>
+          <p class="price">$87</p>
+          <button class="btn-add-cart" onclick="addToCart('Ensalada De Huevo', 87)"><i class="fas fa-cart-plus"></i> Agregar al Carrito</button>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <a href="IMAGENES/menu_frutalrollo.jpg.jpeg.jpeg.jpeg"><img src="../ENSALADID PAGINA WEB/IMAGENES/frutalrollo.png.jpeg.jpeg" alt="Ensalada Frutal Mix Rollito" class="carousel-img"></a>
+        <div class="card">
+          <h3>Ensalada Frutal Mix Rollito</h3>
+          <p class="price">$97</p>
+          <button class="btn-add-cart" onclick="addToCart('Ensalada Frutal Mix Rollito', 97)"><i class="fas fa-cart-plus"></i> Agregar al Carrito</button>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <a href="IMAGENES/menu_frutal.jpg.jpeg.jpeg.jpeg"><img src="../ENSALADID PAGINA WEB/IMAGENES/frutal.png.jpeg.jpeg" alt="Ensalada Frutal" class="carousel-img"></a>
+        <div class="card">
+          <h3>Ensalada Frutal</h3>
+          <p class="price">$72</p>
+          <button class="btn-add-cart" onclick="addToCart('Ensalada Frutal', 72)"><i class="fas fa-cart-plus"></i> Agregar al Carrito</button>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <a href="IMAGENES/menu_tilapia.jpg.jpeg.jpeg.jpeg"><img src="../ENSALADID PAGINA WEB/IMAGENES/tilapia.png.jpeg.jpeg" alt="Ensalada Tilapia A La Plancha" class="carousel-img"></a>
+        <div class="card">
+          <h3>Ensalada Tilapia A La Plancha</h3>
+          <p class="price">$87</p>
+          <button class="btn-add-cart" onclick="addToCart('Ensalada Tilapia A La Plancha', 87)"><i class="fas fa-cart-plus"></i> Agregar al Carrito</button>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <a href="IMAGENES/menu_omelette.png.jpeg.jpeg.jpeg"><img src="../ENSALADID PAGINA WEB/IMAGENES/omelette.png.jpeg.jpeg" alt="Ensalada Omelette" class="carousel-img"></a>
+        <div class="card">
+          <h3>Ensalada Omelette</h3>
+          <p class="price">$87</p>
+          <button class="btn-add-cart" onclick="addToCart('Ensalada Omelette', 87)"><i class="fas fa-cart-plus"></i> Agregar al Carrito</button>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <a href="IMAGENES/menu_vegetal.jpg.jpeg.jpeg.jpeg"><img src="../ENSALADID PAGINA WEB/IMAGENES/vegetal.png.jpeg.jpeg" alt="Ensalada Vegetal" class="carousel-img"></a>
+        <div class="card">
+          <h3>Ensalada Vegetal</h3>
+          <p class="price">$72</p>
+          <button class="btn-add-cart" onclick="addToCart('Ensalada Vegetal', 72)"><i class="fas fa-cart-plus"></i> Agregar al Carrito</button>
+        </div>
+      </div>
+
+      <!-- Controles del carrusel Ensaladas -->
+      <div class="carousel-controls">
+        <button class="prev-btn" onclick="moveSlide('carousel-ensaladas', -1)">❮</button>
+        <div class="dots-container">
+          <span class="dot active" onclick="currentSlide('carousel-ensaladas', 0)"></span>
+          <span class="dot" onclick="currentSlide('carousel-ensaladas', 1)"></span>
+          <span class="dot" onclick="currentSlide('carousel-ensaladas', 2)"></span>
+          <span class="dot" onclick="currentSlide('carousel-ensaladas', 3)"></span>
+          <span class="dot" onclick="currentSlide('carousel-ensaladas', 4)"></span>
+          <span class="dot" onclick="currentSlide('carousel-ensaladas', 5)"></span>
+          <span class="dot" onclick="currentSlide('carousel-ensaladas', 6)"></span>
+        </div>
+        <button class="next-btn" onclick="moveSlide('carousel-ensaladas', 1)">❯</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3: CÓCTELES -->
+  <section id="cocteles" class="page-section">
+    <div class="section-header purple-header">
+      <h2>CÓCTELES</h2>
+      <div class="cart-icon" onclick="openCartModal()"><i class="fas fa-shopping-basket"></i></div>
+    </div>
+
+    <!-- Carrusel Cócteles -->
+    <div class="carousel-container" id="carousel-cocteles">
+      <div class="carousel-slide active">
+        <a href="IMAGENES/menu_coctelkilo.png.jpeg.jpeg.jpeg"><img src="../ENSALADID PAGINA WEB/IMAGENES/coctelkilo.png.jpeg.jpeg" alt="Cóctel Un Kilo" class="carousel-img"></a>
+        <div class="card">
+          <h3>Cóctel Un Kilo</h3>
+          <p class="price">$95</p>
+          <button class="btn-add-cart" onclick="addToCart('Cóctel Un Kilo', 95)"><i class="fas fa-cart-plus"></i> Agregar al Carrito</button>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <a href="IMAGENES/menu_coctelmedio.jpg.jpeg.jpeg.jpeg"><img src="../ENSALADID PAGINA WEB/IMAGENES/coctelmedio.png.jpeg.jpeg" alt="Cóctel De Medio Kilo" class="carousel-img"></a>
+        <div class="card">
+          <h3>Cóctel De Medio Kilo</h3>
+          <p class="price">$70</p>
+          <button class="btn-add-cart" onclick="addToCart('Cóctel De Medio Kilo', 70)"><i class="fas fa-cart-plus"></i> Agregar al Carrito</button>
+        </div>
+      </div>
+
+      <!-- Controles del carrusel Cócteles -->
+      <div class="carousel-controls">
+        <button class="prev-btn" onclick="moveSlide('carousel-cocteles', -1)">❮</button>
+        <div class="dots-container">
+          <span class="dot active" onclick="currentSlide('carousel-cocteles', 0)"></span>
+          <span class="dot" onclick="currentSlide('carousel-cocteles', 1)"></span>
+        </div>
+        <button class="next-btn" onclick="moveSlide('carousel-cocteles', 1)">❯</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 4: BEBIDAS -->
+  <section id="bebidas" class="page-section">
+    <div class="section-header yellow-header">
+      <h2>BEBIDAS</h2>
+      <div class="cart-icon" onclick="openCartModal()"><i class="fas fa-shopping-basket"></i></div>
+    </div>
+
+    <!-- Carrusel Bebidas -->
+    <div class="carousel-container" id="carousel-bebidas">
+      <div class="carousel-slide active">
+        <img src="../ENSALADID PAGINA WEB/IMAGENES/jugodenaranja.png.jpeg.jpeg" alt="Jugo de Naranja" class="carousel-img">
+        <div class="card">
+          <h3>Jugo Natural de Naranja</h3>
+          <p class="price">$45</p>
+          <button class="btn-add-cart" onclick="addToCart('Jugo Natural de Naranja', 45)"><i class="fas fa-cart-plus"></i> Agregar al Carrito</button>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <img src="../ENSALADID PAGINA WEB/IMAGENES/jugodefresa.png.jpeg.jpeg" alt="Jugo de Fresa" class="carousel-img">
+        <div class="card">
+          <h3>Jugo Natural de Fresa</h3>
+          <p class="price">$45</p>
+          <button class="btn-add-cart" onclick="addToCart('Jugo Natural de Fresa', 45)"><i class="fas fa-cart-plus"></i> Agregar al Carrito</button>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <img src="../ENSALADID PAGINA WEB/IMAGENES/jugodebetabel.png.jpeg.jpeg" alt="Jugo de Betabel" class="carousel-img">
+        <div class="card">
+          <h3>Jugo Natural de Betabel</h3>
+          <p class="price">$45</p>
+          <button class="btn-add-cart" onclick="addToCart('Jugo Natural de Betabel', 45)"><i class="fas fa-cart-plus"></i> Agregar al Carrito</button>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <img src="../ENSALADID PAGINA WEB/IMAGENES/jugoverde.png.jpeg.jpeg" alt="Jugo Verde" class="carousel-img">
+        <div class="card">
+          <h3>Jugo Natural Verde</h3>
+          <p class="price">$45</p>
+          <button class="btn-add-cart" onclick="addToCart('Jugo Natural Verde', 45)"><i class="fas fa-cart-plus"></i> Agregar al Carrito</button>
+        </div>
+      </div>
+
+      <!-- Controles del carrusel Bebidas -->
+      <div class="carousel-controls">
+        <button class="prev-btn" onclick="moveSlide('carousel-bebidas', -1)">❮</button>
+        <div class="dots-container">
+          <span class="dot active" onclick="currentSlide('carousel-bebidas', 0)"></span>
+          <span class="dot" onclick="currentSlide('carousel-bebidas', 1)"></span>
+          <span class="dot" onclick="currentSlide('carousel-bebidas', 2)"></span>
+          <span class="dot" onclick="currentSlide('carousel-bebidas', 3)"></span>
+        </div>
+        <button class="next-btn" onclick="moveSlide('carousel-bebidas', 1)">❯</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL DE ¿QUIÉNES SOMOS? -->
+  <div id="aboutModal" class="legal-modal">
+    <div class="legal-modal-content">
+      <span class="close-legal" onclick="closeLegalModal('aboutModal')">×</span>
+      <h2><i class="fas fa-users"></i> ¿Quiénes somos?</h2>
+      
+      <div class="legal-text-body">
+        <h3>Nuestra Historia</h3>
+        <p><strong>Ensaladíd Nicol's</strong> nació en el corazón de una familia que decidió emprender ante los retos del COVID-19. Fue un inicio difícil, pero gracias a la perseverancia y al cariño con el que preparamos cada platillo, el negocio ha crecido y se ha consolidado hasta el día de hoy.</p>
+
+        <h3>Nuestra Filosofía</h3>
+        <p>Tenemos claro que no solo vendemos ensaladas y ya; nuestro verdadero objetivo es <strong>crear un hábito saludable</strong> en quienes nos visitan. Ofrecemos opciones muy balanceadas y con porciones ideales. No somos un concepto 100% vegano, sino un espacio equilibrado para empezar a comer mejor sin la necesidad de hacer un cambio brusco o drástico en tu estilo de vida.</p>
+
+        <h3>Nuestra Visión de Futuro</h3>
+        <p>Miramos hacia adelante con entusiasmo: en unos años nos visualizamos como un negocio totalmente establecido y, más adelante, convertiremos a Ensaladíd Nicol's en una cadena presente en diversas plazas comerciales, llevando salud y buen sabor a más hogares.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE TÉRMINOS Y CONDICIONES -->
+  <div id="termsModal" class="legal-modal">
+    <div class="legal-modal-content">
+      <span class="close-legal" onclick="closeLegalModal('termsModal')">×</span>
+      <h2><i class="fas fa-file-alt"></i> Términos y condiciones</h2>
+      
+      <div class="legal-text-body">
+        <h3>TÉRMINOS Y CONDICIONES DE USO Y VENTA</h3>
+        <p><strong>Ensaladíd Nicol's</strong> — Tienda virtual de alimentos y bebidas saludables.<br>
+        <strong>Última fecha de revisión:</strong> 13 de noviembre de 2026.</p>
+
+        <h3>1. Aceptación de los Términos</h3>
+        <p>El acceso y uso del sitio web de <strong>Ensaladíd Nicol's</strong> (operado por Cynthia Cabrera Luna, con domicilio en Hacienda los laureles #118, Colonia Hacienda Cuautitlán, Cuautitlán, Estado de México) implica la aceptación plena y sin reservas de los presentes Términos y Condiciones. Si no está de acuerdo con ellos, le sugerimos no utilizar la plataforma ni realizar pedidos en línea.</p>
+
+        <h3>2. Productos y Disponibilidad</h3>
+        <p>Ensaladíd Nicol's ofrece a través de hacer su tienda virtual la venta de alimentos preparados y bebidas (ensaladas balanceadas, cócteles de frutas y jugos naturales). Todos los productos están sujetos a la disponibilidad de ingredientes frescos del día. Nos reservamos el derecho de modificar o descontinuar cualquier producto del menú sin previo aviso.</p>
+
+        <h3>3. Precios y Moneda</h3>
+        <p>• Todos los precios publicados en la tienda virtual se encuentran expresados en <strong>Pesos Mexicanos (MXN)</strong> e incluyen los impuestos aplicables.<br>
+        • El <strong>monto total a pagar</strong> por el cliente dependerá de los productos seleccionados y agregados a su canasta de compra.<br>
+        • Nos reservamos el derecho de modificar los precios de los platillos en cualquier momento, garantizando que el cobro aplicará sobre el precio vigente al momento de confirmar su orden.</p>
+
+        <h3>4. Formas de Pago</h3>
+        <p>Para su comodidad, Ensaladíd Nicol's habilita las siguientes formas de pago:<br>
+        • <strong>Plataforma digital:</strong> Pagos en línea mediante <strong>PayPal</strong> o tarjetas de débito/crédito autorizadas.<br>
+        • <strong>Pedidos vía WhatsApp:</strong> Coordinación directa con el cliente, permitiendo el pago en efectivo contra entrega a domicilio (aplicable únicamente bajo esta modalidad de entrega coordinada localmente).</p>
+
+        <h3>5. Envíos y Métodos de Entrega</h3>
+        <p>• <strong>No realizamos envíos masivos automatizados</strong> a través de paqueterías externas mediante la plataforma web.<br>
+        • La logística de entrega a domicilio o la coordinación de pedidos se realiza de manera directa y personalizada <strong>únicamente vía WhatsApp (55 30 36 05 93)</strong>. Al realizar su compra, se validarán las zonas de cobertura y los tiempos estimados de entrega local.</p>
+
+        <h3>6. Cancelaciones, Cambios y Devoluciones</h3>
+        <p>Debido a que nuestros productos son alimentos perecederos preparados de manera fresca y artesanal:<br>
+        • <strong>Cancelaciones:</strong> Solo se aceptarán cancelaciones de pedidos si estas se solicitan a través de nuestro canal de WhatsApp antes de que el platillo comience a ser preparado. Una vez iniciado la elaboración, no aplican cancelaciones.<br>
+        • <strong>Cambios o devoluciones:</strong> En caso de que exista un error en el contenido de su pedido imputable a nuestro servicio, el cliente deberá reportarlo inmediatamente al recibirlo a través del teléfono 55 30 36 05 93 para evaluar la reposición o aclaración correspondiente.</p>
+
+        <h3>7. Propiedad Intelectual</h3>
+        <p>Todo el contenido visual, logotipos, imágenes de productos, textos y diseño web de Ensaladíd Nicol's son propiedad exclusiva de Cynthia Cabrera Luna y están protegidos por las leyes de propiedad intelectual. Queda prohibida su reproducción total o parcial sin autorización previa.</p>
+
+        <h3>8. Modificaciones a los Términos</h3>
+        <p>Ensaladíd Nicol's se reserva el derecho de modificar, actualizar o cambiar estos Términos y Condiciones en cualquier momento para adaptarlos a nuevas disposiciones legales o necesidades operativas. Las modificaciones entrarán en vigor a partir de su publicación en este sitio web.</p>
+
+        <p><strong>Contacto oficial:</strong><br>
+        • <strong>Responsable:</strong> Cynthia Cabrera Luna<br>
+        • <strong>Correo electrónico:</strong> ensaladinicols@gmail.com<br>
+        • <strong>Teléfono / WhatsApp:</strong> 55 30 36 05 93<br>
+        • <strong>Domicilio:</strong> Hacienda los laureles #118, Col. Hacienda Cuautitlán, Cuautitlán, Estado de México.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE AVISO DE PRIVACIDAD -->
+  <div id="privacyModal" class="legal-modal">
+    <div class="legal-modal-content">
+      <span class="close-legal" onclick="closeLegalModal('privacyModal')">×</span>
+      <h2><i class="fas fa-shield-alt"></i> Aviso de privacidad</h2>
+      
+      <div class="legal-text-body">
+        <h3>AVISO DE PRIVACIDAD INTEGRAL</h3>
+        <p><strong>Ensaladíd Nicol's</strong> — Tienda virtual de alimentos y bebidas saludables.<br>
+        <strong>Última fecha de revisión:</strong> 13 de noviembre de 2026.</p>
+
+        <h3>1. Identidad y domicilio del responsable</h3>
+        <p><strong>Cynthia Cabrera Luna</strong>, con nombre comercial <strong>Ensaladíd Nicol's</strong>, cuyo giro comercial es el sector de alimentos (preparación y venta de ensaladas, cócteles y bebidas), y con domicilio ubicado en: Hacienda los laureles #118, Colonia Hacienda Cuautitlán, Cuautitlán, Estado de México, C.P. 54800, es responsable del tratamiento de los datos personales que recabe a través de su tienda virtual y medios digitales.</p>
+        <p>Para cualquier consulta relacionada con el tratamiento de sus datos personales, dudas sobre sus pedidos, o ejercicio de derechos, ponemos a su disposición los siguientes medios de contacto:</p>
+        <p>• <strong>Correo electrónico:</strong> ensaladinicols@gmail.com<br>
+        • <strong>Teléfono / WhatsApp:</strong> 55 30 36 05 93<br>
+        • <strong>Redes sociales oficiales:</strong> Facebook: Ensaladid Nicols</p>
+
+        <h3>2. Datos personales que se recaban</h3>
+        <p>Para gestionar las compras, brindar atención a los clientes y coordinar los servicios en idioma español, Ensaladíd Nicol's podrá recabar los siguientes datos personales:</p>
+        <p>• Nombre y apellidos.<br>
+        • Correo electrónico.<br>
+        • Número telefónico.<br>
+        • Domicilio de entrega (para pedidos coordinados de manera local).<br>
+        • Datos relacionados con los pedidos y las compras realizadas (incluyendo las características de los bienes o productos solicitados, el monto total a pagar en moneda nacional MXN, y la información sobre la forma de pago elegida: PayPal, tarjetas de débito o pedidos vía WhatsApp con entrega a domicilio y pago en efectivo).<br>
+        • Información necesaria para atender solicitudes, aclaraciones, cancelaciones, cambios o devoluciones.</p>
+        <p><em>Nota sobre pagos:</em> Los datos bancarios o de tarjetas de pago procesados mediante plataforma digital son tratados directamente por el proveedor de pagos correspondiente (PayPal). La tienda no almacena ni protege directamente datos bancarios sensibles en sus servidores locales. Ensaladíd Nicol's no solicita datos personales sensibles para las finalidades descritas.</p>
+
+        <h3>3. Finalidades del tratamiento de los datos personales</h3>
+        <p>Los datos personales recabados se utilizarán para las siguientes finalidades primarias y necesarias para atender la relación comercial:</p>
+        <p>• Registrar y gestionar los pedidos de alimentos y bebidas.<br>
+        • Procesar las compras y coordinar los pagos mediante los medios habilitados (PayPal, tarjetas de débito o efectivo en entregas por WhatsApp).<br>
+        • Preparar los productos adquiridos conforme a las características solicitadas.<br>
+        • Enviar confirmaciones y notificaciones sobre los pedidos.<br>
+        • Atender dudas, aclaraciones, reclamaciones, cancelaciones, cambios y devoluciones.<br>
+        • Cumplir las obligaciones legales aplicables a las operaciones comerciales y de consumo dictadas por la PROFECO.</p>
+        <p><em>Finalidades secundarias (Permiso para recibir publicidad):</em> Adicionalmente, con su consentimiento, podremos utilizar sus datos de contacto para enviarle promociones, ofertas, novedades y publicidad sobre nuestros productos y menús especiales. La persona titular podrá manifestar en todo momento su negativa a recibir publicidad o revocar su permiso enviando un mensaje al correo ensaladinicols@gmail.com o directamente mediante el mecanismo de baja habilitado en nuestros canales de contacto.</p>
+
+        <h3>4. Opciones y medios para limitar el uso o divulgación de los datos</h3>
+        <p>Las personas titulares podrán solicitar en cualquier momento que sus datos no se utilicen para finalidades publicitarias o promocionales, o bien limitar su divulgación, enviando una solicitud formal al correo electrónico ensaladinicols@gmail.com. Su petición será atendida conforme a las disposiciones legales aplicables.</p>
+
+        <h3>5. Transferencias de datos personales</h3>
+        <p>Los datos personales podrán comunicarse a terceros únicamente cuando resulte estrictamente necesario para las operaciones de la tienda y la entrega del servicio, tales como:</p>
+        <p>• Proveedores de servicios tecnológicos y plataformas de pago (como PayPal o procesadores de tarjetas) para validar las transacciones en moneda nacional MXN.<br>
+        • <em>Nota sobre envíos:</em> Cabe destacar que Ensaladíd Nicol's no realiza envíos a domicilio masivos a través de plataformas web automatizadas de paquetería; la logística de entrega a domicilio se coordina de manera directa e interna <strong>únicamente vía WhatsApp</strong>, por lo que no se transfieren datos de domicilio a terceras empresas de mensajería externa, salvo requerimiento legal.</p>
+
+        <h3>6. Derechos ARCO y procedimiento para ejercerlos</h3>
+        <p>La persona titular de los datos tiene derecho a conocer qué datos personales tenemos de su persona, para qué los utilizamos y las condiciones del tratamiento (<strong>Acceso</strong>); asimismo, es su derecho solicitar la corrección de su información personal en caso de estar desactualizada, ser inexacta o incompleta (<strong>Rectificación</strong>); que la eliminemos de nuestros registros o bases de datos cuando considere que la misma no está siendo utilizada conforme a los principios, deberes y obligaciones previstas en la normativa (<strong>Cancelación</strong>); así como oponerse al uso de sus datos personales para fines específicos (<strong>Oposición</strong>).</p>
+        <p>Para ejercer estos derechos ARCO, la persona titular deberá enviar una solicitud clara y por escrito al correo electrónico <strong>ensaladinicols@gmail.com</strong>, indicando:</p>
+        <p>• Nombre completo del titular.<br>
+        • Medio de contacto (correo o teléfono) para recibir la respuesta.<br>
+        • Descripción clara y precisa de los datos personales respecto de los cuales busca ejercer alguno de los derechos, y el derecho que desea ejercer.</p>
+        <p>La tienda comunicará los requisitos adicionales en caso de ser necesarios y atenderá su solicitud dentro de los plazos legales establecidos por la legislación vigente en México.</p>
+
+        <h3>7. Medidas de seguridad</h3>
+        <p>Cynthia Cabrera Luna implementará medidas de seguridad administrativas, técnicas y físicas adecuadas para proteger los datos personales de Ensaladíd Nicol's contra daño, pérdida, alteración, destrucción o el uso, acceso y tratamiento no autorizado, tales como controles de acceso interno, contraseñas seguras y protocolos de protección de información.</p>
+
+        <h3>8. Cambios al aviso de privacidad</h3>
+        <p>El presente aviso de privacidad podrá sufrir modificaciones, cambios o actualizaciones derivadas de nuevos requerimientos legales, de nuestras propias necesidades comerciales por el crecimiento del negocio, de nuestras prácticas de privacidad o por otras causas. Cualquier modificación será informada y puesta a disposición a través de nuestros canales oficiales y sitio web.</p>
+
+        <p><strong>Responsable del aviso:</strong> Cynthia Cabrera Luna (Ensaladíd Nicol's)<br>
+        <strong>Correo electrónico:</strong> ensaladinicols@gmail.com<br>
+        <strong>Teléfono de contacto / WhatsApp:</strong> 55 30 36 05 93<br>
+        <strong>Domicilio en México:</strong> Hacienda los laureles #118, Col. Hacienda Cuautitlán, Cuautitlán, Estado de México.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DEL CARRITO DE COMPRAS -->
+  <div id="cartModal" class="cart-modal">
+    <div class="cart-modal-content">
+      <span class="close-cart" onclick="closeCartModal()">×</span>
+      <h2><i class="fas fa-shopping-cart"></i> Tu Canasta de Compra</h2>
+      
+      <div id="cartItemsList" class="cart-items-list">
+        <p class="empty-cart-msg">Tu canasta está vacía</p>
+      </div>
+
+      <div class="cart-summary">
+        <div class="cart-total-row">
+          <span>Total a Pagar:</span>
+          <strong id="cartTotal">$0.00 MXN</strong>
+        </div>
+
+        <button class="btn-clear-cart" onclick="clearCart()">
+          <i class="fas fa-trash-alt"></i> Vaciar Canasta
+        </button>
+        
+        <button class="btn-checkout-wa" id="sendWaOrderBtn" onclick="sendWhatsAppOrder()">
+          <i class="fab fa-whatsapp"></i> Pagar por WhatsApp
+        </button>
+
+        <div class="divider"><span>o paga con tarjeta / cuenta</span></div>
+        <div id="paypal-button-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-info">
+      <p class="phone">📞 Teléfono: <strong>55 30 36 05 93</strong></p>
+      
+      <div class="social-icons">
+        <a href="https://wa.me/525530360593" target="_blank" class="social-btn whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/share/1E9hx6cyWz/" target="_blank" class="social-btn facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/ensaladidn_10" target="_blank" class="social-btn instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://tiktok.com/@tu_pagina" target="_blank" class="social-btn tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <a href="javascript:void(0)" onclick="openLegalModal('aboutModal')">¿Quiénes somos?</a>
+      <a href="javascript:void(0)" onclick="openLegalModal('termsModal')">Términos y condiciones</a>
+      <a href="javascript:void(0)" onclick="openLegalModal('privacyModal')">Aviso de privacidad</a>
+      
+    </div>
+  </footer>
+
+  <!-- Archivo JavaScript al final del body -->
+  <script src="file:///C|/Users/52556/Desktop/Ensaladid 2/script.js"></script>
+</body>
+</html>
